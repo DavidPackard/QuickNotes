@@ -5,14 +5,6 @@ from tkinter import simpledialog
 from datetime import datetime
 import os
 
-NOTES_FILE = "notes.txt"
-
-def load_notes():
-    if not os.path.exists(NOTES_FILE):
-        return ""
-    with open(NOTES_FILE, "r", encoding="utf-8") as f:
-        return f.read()
-
 def save_as():
     """Prompt for a file name and save all notes from the text widget."""
     filename = filedialog.asksaveasfilename(
@@ -110,9 +102,5 @@ text_area.pack(padx=10, pady=10)
 
 save_btn = tk.Button(app, text="Save As", command=save_as)
 save_btn.pack(pady=5)
-
-# Load previous notes
-text_area.insert(tk.END, load_notes())
-text_area.see(tk.END)  # scroll to bottom on startup
 
 app.mainloop()
