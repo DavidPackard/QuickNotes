@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+from tkinter import simpledialog
 from datetime import datetime
 import os
 
@@ -16,9 +17,13 @@ def save_notes():
     with open(NOTES_FILE, "w", encoding="utf-8") as f:
         f.write(content + "\n")
 
-def add_note(event=None):
+def add_note(event=None, note_text=None):
     """Add a new timestamped note at the end of the file/text."""
-    note = entry.get().strip()
+    if note_text is None:
+        note = entry.get().strip()
+    else:
+        note = note_text
+
     if not note:
         return
     
@@ -27,13 +32,14 @@ def add_note(event=None):
 
     # Append to the text area
     text_area.insert(tk.END, new_entry)
-    text_area.see(tk.END)   # 🔥 Auto-scroll to bottom
+    text_area.see(tk.END)   # Auto-scroll to bottom
 
     # Append to the file
     with open(NOTES_FILE, "a", encoding="utf-8") as f:
         f.write(new_entry)
 
-    entry.delete(0, tk.END)
+    if note_text is None:
+        entry.delete(0, tk.END)
 
 # ------------------------ GUI ------------------------
 
@@ -48,7 +54,34 @@ entry = tk.Entry(entry_frame, width=50)
 entry.pack(side=tk.LEFT, padx=5)
 
 add_btn = tk.Button(entry_frame, text="Add Note", command=add_note)
-add_btn.pack(side=tk.LEFT)
+add_btn.pack(side=tk.LEFT, padx=5)
+
+# Pre-prepared note buttons
+def call_start_note():
+    """Add a [CALL START] note, optionally with extra text from the user."""
+    extra_text = simpledialog.askstring("Call Start", "Phone Number:")
+    if extra_text:
+        full_note = f"=== [CALL START] {extra_text.strip()} ==="
+    else:
+        full_note = "[CALL START]"
+    add_note(note_text=full_note)
+
+custom_buttons_frame = tk.Frame(app)
+custom_buttons_frame.pack(pady=5)
+
+custombutton_padx = 3
+
+callstart_btn = tk.Button(custom_buttons_frame, text="Call Start", command=call_start_note)
+callstart_btn.pack(side=tk.LEFT, padx=custombutton_padx)
+
+on_hold_btn = tk.Button(custom_buttons_frame, text="On Hold", command=lambda: add_note(note_text="[CALL ON HOLD]"))
+on_hold_btn.pack(side=tk.LEFT, padx=custombutton_padx)
+
+off_hold_btn = tk.Button(custom_buttons_frame, text="Off Hold", command=lambda: add_note(note_text="[CALL OFF HOLD]"))
+off_hold_btn.pack(side=tk.LEFT, padx=custombutton_padx)
+
+call_end_btn = tk.Button(custom_buttons_frame, text="Call End", command=lambda: add_note(note_text="=== [CALL ENDED] ==="))
+call_end_btn.pack(side=tk.LEFT, padx=custombutton_padx)
 
 entry.bind("<Return>", add_note)
 
@@ -61,6 +94,6 @@ save_btn.pack(pady=5)
 
 # Load previous notes
 text_area.insert(tk.END, load_notes())
-text_area.see(tk.END)  # scroll to bottom on startup in case notes are long
+text_area.see(tk.END)  # scroll to bottom on startup
 
 app.mainloop()
