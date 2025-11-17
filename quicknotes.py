@@ -40,7 +40,12 @@ def add_note(event=None, note_text=None):
         entry.delete(0, tk.END)
 
 def on_close():
-    """Prompt to save notes before closing."""
+    content = text_area.get("1.0", tk.END).strip()
+    if not content:
+        # No notes, just close
+        app.destroy()
+        return
+
     answer = messagebox.askyesnocancel("Exit", "Do you want to save your notes before exiting?")
     
     if answer is True:  # Yes
@@ -50,6 +55,7 @@ def on_close():
         app.destroy()
     else:  # Cancel
         pass  # Do nothing, stay in the app
+
 
 # ------------------------ GUI ------------------------
 
