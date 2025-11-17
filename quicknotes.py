@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+from tkinter import filedialog
 from tkinter import simpledialog
 from datetime import datetime
 import os
@@ -12,13 +13,22 @@ def load_notes():
     with open(NOTES_FILE, "r", encoding="utf-8") as f:
         return f.read()
 
-def save_notes():
+def save_as():
+    """Prompt for a file name and save all notes from the text widget."""
+    filename = filedialog.asksaveasfilename(
+        title="Save Notes As",
+        defaultextension=".txt",
+        filetypes=[("Text Files", "*.txt"), ("All Files", "*.*")]
+    )
+    if not filename:
+        return  # User cancelled
+
     content = text_area.get("1.0", tk.END).strip()
-    with open(NOTES_FILE, "w", encoding="utf-8") as f:
+    with open(filename, "w", encoding="utf-8") as f:
         f.write(content + "\n")
 
 def add_note(event=None, note_text=None):
-    """Add a new timestamped note at the end of the file/text."""
+    """Add a new timestamped note at the end of the text area."""
     if note_text is None:
         note = entry.get().strip()
     else:
@@ -26,26 +36,35 @@ def add_note(event=None, note_text=None):
 
     if not note:
         return
-    
+
     timestamp = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     new_entry = f"[{timestamp}] {note}\n"
 
-    # Append to the text area
+    # Only insert in the text widget
     text_area.insert(tk.END, new_entry)
-    text_area.see(tk.END)   # Auto-scroll to bottom
-
-    # Append to the file
-    with open(NOTES_FILE, "a", encoding="utf-8") as f:
-        f.write(new_entry)
+    text_area.see(tk.END)
 
     if note_text is None:
         entry.delete(0, tk.END)
+
+def on_close():
+    """Prompt to save notes before closing."""
+    answer = messagebox.askyesnocancel("Exit", "Do you want to save your notes before exiting?")
+    
+    if answer is True:  # Yes
+        save_as()
+        app.destroy()
+    elif answer is False:  # No
+        app.destroy()
+    else:  # Cancel
+        pass  # Do nothing, stay in the app
 
 # ------------------------ GUI ------------------------
 
 app = tk.Tk()
 app.title("Quick Notes")
 app.geometry("600x500")
+app.protocol("WM_DELETE_WINDOW", on_close)
 
 entry_frame = tk.Frame(app)
 entry_frame.pack(pady=10)
@@ -89,7 +108,7 @@ entry.bind("<Return>", add_note)
 text_area = tk.Text(app, wrap="word", width=70, height=20)
 text_area.pack(padx=10, pady=10)
 
-save_btn = tk.Button(app, text="Save Changes", command=save_notes)
+save_btn = tk.Button(app, text="Save As", command=save_as)
 save_btn.pack(pady=5)
 
 # Load previous notes
