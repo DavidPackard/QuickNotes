@@ -6,14 +6,12 @@ import os
 NOTES_FILE = "notes.txt"
 
 def load_notes():
-    """Load notes from file."""
     if not os.path.exists(NOTES_FILE):
         return ""
     with open(NOTES_FILE, "r", encoding="utf-8") as f:
         return f.read()
 
 def save_notes():
-    """Overwrite the notes file with the edited text."""
     content = text_area.get("1.0", tk.END).strip()
     with open(NOTES_FILE, "w", encoding="utf-8") as f:
         f.write(content + "\n")
@@ -29,14 +27,13 @@ def add_note(event=None):
 
     # Append to the text area
     text_area.insert(tk.END, new_entry)
-    text_area.see(tk.END)
+    text_area.see(tk.END)   # 🔥 Auto-scroll to bottom
 
-    # Append to file
+    # Append to the file
     with open(NOTES_FILE, "a", encoding="utf-8") as f:
         f.write(new_entry)
 
     entry.delete(0, tk.END)
-
 
 # ------------------------ GUI ------------------------
 
@@ -53,15 +50,17 @@ entry.pack(side=tk.LEFT, padx=5)
 add_btn = tk.Button(entry_frame, text="Add Note", command=add_note)
 add_btn.pack(side=tk.LEFT)
 
-# 🔥 Bind the Enter key to save the note
 entry.bind("<Return>", add_note)
 
+# Text box for showing/editing notes
 text_area = tk.Text(app, wrap="word", width=70, height=20)
 text_area.pack(padx=10, pady=10)
 
 save_btn = tk.Button(app, text="Save Changes", command=save_notes)
 save_btn.pack(pady=5)
 
+# Load previous notes
 text_area.insert(tk.END, load_notes())
+text_area.see(tk.END)  # scroll to bottom on startup in case notes are long
 
 app.mainloop()
