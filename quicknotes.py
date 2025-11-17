@@ -29,6 +29,7 @@ def add_note(event=None):
 
     # Append to the text area
     text_area.insert(tk.END, new_entry)
+    text_area.see(tk.END)
 
     # Append to file
     with open(NOTES_FILE, "a", encoding="utf-8") as f:
