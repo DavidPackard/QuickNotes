@@ -18,8 +18,8 @@ def save_notes():
     with open(NOTES_FILE, "w", encoding="utf-8") as f:
         f.write(content + "\n")
 
-def add_note():
-    """Add a new timestamped note at the top of the file."""
+def add_note(event=None):
+    """Add a new timestamped note at the end of the file/text."""
     note = entry.get().strip()
     if not note:
         return
@@ -27,18 +27,15 @@ def add_note():
     timestamp = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     new_entry = f"[{timestamp}] {note}\n"
 
-    # Insert at the top of the existing notes
-    existing = text_area.get("1.0", tk.END).strip()
-    updated = new_entry + existing
+    # Append to the text area
+    text_area.insert(tk.END, new_entry)
 
-    text_area.delete("1.0", tk.END)
-    text_area.insert(tk.END, updated)
-
-    # Save to file
-    with open(NOTES_FILE, "w", encoding="utf-8") as f:
-        f.write(updated + "\n")
+    # Append to file
+    with open(NOTES_FILE, "a", encoding="utf-8") as f:
+        f.write(new_entry)
 
     entry.delete(0, tk.END)
+
 
 # ------------------------ GUI ------------------------
 
@@ -46,7 +43,6 @@ app = tk.Tk()
 app.title("Quick Notes")
 app.geometry("600x500")
 
-# Input area
 entry_frame = tk.Frame(app)
 entry_frame.pack(pady=10)
 
@@ -56,14 +52,15 @@ entry.pack(side=tk.LEFT, padx=5)
 add_btn = tk.Button(entry_frame, text="Add Note", command=add_note)
 add_btn.pack(side=tk.LEFT)
 
-# Text editor for all notes
+# 🔥 Bind the Enter key to save the note
+entry.bind("<Return>", add_note)
+
 text_area = tk.Text(app, wrap="word", width=70, height=20)
 text_area.pack(padx=10, pady=10)
 
 save_btn = tk.Button(app, text="Save Changes", command=save_notes)
 save_btn.pack(pady=5)
 
-# Load existing notes on startup
 text_area.insert(tk.END, load_notes())
 
 app.mainloop()
