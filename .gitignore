@@ -1,4 +1,4 @@
 notes.txt
-/build
-/dist
+v1/build
+v1/dist
 *.spec
