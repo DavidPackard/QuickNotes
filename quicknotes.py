@@ -17,7 +17,6 @@ def save_notes():
     content = text_area.get("1.0", tk.END).strip()
     with open(NOTES_FILE, "w", encoding="utf-8") as f:
         f.write(content + "\n")
-    messagebox.showinfo("Saved", "Notes updated successfully.")
 
 def add_note():
     """Add a new timestamped note at the top of the file."""
