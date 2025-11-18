@@ -1,1 +1,0 @@
-pyinstaller --onedir --windowed --clean quicknotes.py
