@@ -47,9 +47,9 @@ namespace QuickNotes_v2
             string entry;
 
             if (!string.IsNullOrWhiteSpace(phone))
-                entry = $"=== [CALL START] {phone.Trim()} ===";
+                entry = $"=== [ CALL START ] {phone.Trim()} ===";
             else
-                entry = "=== [CALL START] ===";
+                entry = "=== [ CALL START ] ===";
 
             AddNote(entry);
         }
@@ -72,21 +72,11 @@ namespace QuickNotes_v2
             StartCall_PreButton.Click += (s, e) => AddCallStart();
             OnHold_PreButton.Click += (s, e) => AddNote("[CALL ON HOLD]");
             OffHold_PreButton.Click += (s, e) => AddNote("[CALL OFF HOLD]");
-            EndCall_Button.Click += (s, e) => AddNote("=== [CALL ENDED] ===");
+            EndCall_Button.Click += (s, e) => AddNote("=== [ CALL END ] ===");
 
             input_textbox.KeyDown += Input_textbox_KeyDown;
 
         }
 
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
