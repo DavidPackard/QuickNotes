@@ -125,7 +125,7 @@
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(312, 255);
             this.Name = "Form1";
-            this.Text = "QuickNotes v2.0";
+            this.Text = "QuickNotes v2.2";
             this.ResumeLayout(false);
 
         }
