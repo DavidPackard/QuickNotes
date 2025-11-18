@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,47 +13,53 @@ namespace QuickNotes_v2
 {
     public partial class Form1 : Form
     {
-        private void AddNote(string overrideText = null)
-        {
-            string noteText;
+        private readonly string AutoSavePath = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+            "QuickNotesDraft.txt");
 
-            if (overrideText == null)
+        private Timer autoSaveTimer;
+
+        private void AddNote(string noteText = null, bool addTimestamp = true)
+        {
+            if (noteText == null)
             {
                 noteText = input_textbox.Text.Trim();
                 if (string.IsNullOrEmpty(noteText))
                     return;
-            }
-            else
-            {
-                noteText = overrideText;
-            }
 
-            string timestamp = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-            string entry = $"[{timestamp}] {noteText}{Environment.NewLine}";
-
-            log_textbox.AppendText(entry);
-            log_textbox.ScrollToCaret();
-
-            if (overrideText == null)
                 input_textbox.Clear();
+            }
+
+            string entry = noteText;
+
+            if (addTimestamp)
+            {
+                string timestamp = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                entry = $"[{timestamp}] {noteText}";
+            }
+
+            log_textbox.AppendText(entry + Environment.NewLine);
+            log_textbox.ScrollToCaret();
         }
+
 
         private void AddCallStart()
         {
-            string phone = Microsoft.VisualBasic.Interaction.InputBox(
-                "Enter caller ID / phone number (optional):",
-                "Call Start",
-                "");
+            // Prompt for basic customer info
+            string name = Microsoft.VisualBasic.Interaction.InputBox("Enter Customer Name:", "Call Start", "");
+            string phone = Microsoft.VisualBasic.Interaction.InputBox("Enter Phone Number:", "Call Start", "");
+            string issue = Microsoft.VisualBasic.Interaction.InputBox("Issue:", "Call Start", "");
 
-            string entry;
+            AddNote("=== [CALL START] ===", addTimestamp: true);
+            // Build the template
+            string template =
+            $@"Name: {name}
+Phone: {phone}
+Issue: {issue}";
 
-            if (!string.IsNullOrWhiteSpace(phone))
-                entry = $"=== [ CALL START ] {phone.Trim()} ===";
-            else
-                entry = "=== [ CALL START ] ===";
-
-            AddNote(entry);
+            AddNote(template, addTimestamp: false);
         }
+
         private void Input_textbox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -62,11 +69,34 @@ namespace QuickNotes_v2
             }
         }
 
-
+        private void AutoSaveTimer_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                File.WriteAllText(AutoSavePath, log_textbox.Text);
+            }
+            catch
+            {
+                // Fail silently
+            }
+        }
 
         public Form1()
         {
             InitializeComponent();
+
+            // Load draft if it exists
+            if (File.Exists(AutoSavePath))
+            {
+                log_textbox.Text = File.ReadAllText(AutoSavePath);
+            }
+
+            // Setup auto-save timer (every 30 seconds)
+            autoSaveTimer = new Timer();
+            autoSaveTimer.Interval = 30_000; // 30 seconds
+            autoSaveTimer.Tick += AutoSaveTimer_Tick;
+            autoSaveTimer.Start();
+
 
             AddNote_Button.Click += (s, e) => AddNote();
             StartCall_PreButton.Click += (s, e) => AddCallStart();

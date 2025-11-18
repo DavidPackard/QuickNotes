@@ -61,7 +61,7 @@
             // 
             this.StartCall_PreButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.StartCall_PreButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.StartCall_PreButton.Location = new System.Drawing.Point(438, 79);
+            this.StartCall_PreButton.Location = new System.Drawing.Point(438, 80);
             this.StartCall_PreButton.Name = "StartCall_PreButton";
             this.StartCall_PreButton.Size = new System.Drawing.Size(85, 27);
             this.StartCall_PreButton.TabIndex = 3;
@@ -71,7 +71,7 @@
             // OnHold_PreButton
             // 
             this.OnHold_PreButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.OnHold_PreButton.Location = new System.Drawing.Point(438, 112);
+            this.OnHold_PreButton.Location = new System.Drawing.Point(438, 113);
             this.OnHold_PreButton.Name = "OnHold_PreButton";
             this.OnHold_PreButton.Size = new System.Drawing.Size(85, 27);
             this.OnHold_PreButton.TabIndex = 3;
@@ -81,7 +81,7 @@
             // OffHold_PreButton
             // 
             this.OffHold_PreButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.OffHold_PreButton.Location = new System.Drawing.Point(438, 145);
+            this.OffHold_PreButton.Location = new System.Drawing.Point(438, 146);
             this.OffHold_PreButton.Name = "OffHold_PreButton";
             this.OffHold_PreButton.Size = new System.Drawing.Size(85, 27);
             this.OffHold_PreButton.TabIndex = 3;
@@ -92,7 +92,7 @@
             // 
             this.EndCall_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EndCall_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.EndCall_Button.Location = new System.Drawing.Point(438, 178);
+            this.EndCall_Button.Location = new System.Drawing.Point(438, 179);
             this.EndCall_Button.Name = "EndCall_Button";
             this.EndCall_Button.Size = new System.Drawing.Size(85, 27);
             this.EndCall_Button.TabIndex = 3;
