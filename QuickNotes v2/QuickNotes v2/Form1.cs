@@ -108,5 +108,35 @@ Issue: {issue}";
 
         }
 
+        private void Save_Button_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Title = "Save Notes";
+                sfd.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+
+                // Set initial directory to the folder where the EXE is running
+                sfd.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory;
+
+                // Default file name
+                sfd.FileName = "notes.txt";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        File.WriteAllText(sfd.FileName, log_textbox.Text);
+                        MessageBox.Show("Notes saved successfully.", "Saved",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Failed to save file:\n{ex.Message}", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
     }
 }

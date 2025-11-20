@@ -35,6 +35,7 @@
             this.OffHold_PreButton = new System.Windows.Forms.Button();
             this.EndCall_Button = new System.Windows.Forms.Button();
             this.log_textbox = new System.Windows.Forms.RichTextBox();
+            this.Save_Button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // input_textbox
@@ -110,11 +111,22 @@
             this.log_textbox.TabIndex = 4;
             this.log_textbox.Text = "";
             // 
+            // Save_Button
+            // 
+            this.Save_Button.Location = new System.Drawing.Point(439, 246);
+            this.Save_Button.Name = "Save_Button";
+            this.Save_Button.Size = new System.Drawing.Size(44, 23);
+            this.Save_Button.TabIndex = 5;
+            this.Save_Button.Text = "Save";
+            this.Save_Button.UseVisualStyleBackColor = true;
+            this.Save_Button.Click += new System.EventHandler(this.Save_Button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 281);
+            this.Controls.Add(this.Save_Button);
             this.Controls.Add(this.log_textbox);
             this.Controls.Add(this.EndCall_Button);
             this.Controls.Add(this.OffHold_PreButton);
@@ -125,7 +137,7 @@
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(312, 255);
             this.Name = "Form1";
-            this.Text = "QuickNotes v2.2";
+            this.Text = "QuickNotes v2.3";
             this.ResumeLayout(false);
 
         }
@@ -138,6 +150,7 @@
         private System.Windows.Forms.Button OffHold_PreButton;
         private System.Windows.Forms.Button EndCall_Button;
         private System.Windows.Forms.RichTextBox log_textbox;
+        private System.Windows.Forms.Button Save_Button;
     }
 }
 

@@ -8,3 +8,4 @@
 \\adlfp01\homes\dpackard\Scripts\notes\QuickNotes v2\QuickNotes v2\obj\Release\QuickNotes v2.csproj.CoreCompileInputs.cache
 \\adlfp01\homes\dpackard\Scripts\notes\QuickNotes v2\QuickNotes v2\obj\Release\QuickNotes v2.exe
 \\adlfp01\homes\dpackard\Scripts\notes\QuickNotes v2\QuickNotes v2\obj\Release\QuickNotes v2.pdb
+\\adlfp01\homes\dpackard\Scripts\notes\QuickNotes v2\QuickNotes v2\obj\Release\QuickNotes v2.exe.config
