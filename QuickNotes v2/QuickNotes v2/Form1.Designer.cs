@@ -37,6 +37,7 @@
             this.log_textbox = new System.Windows.Forms.RichTextBox();
             this.Save_Button = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // input_textbox
@@ -132,11 +133,22 @@
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(362, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(33, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Asset";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 281);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.Save_Button);
             this.Controls.Add(this.log_textbox);
             this.Controls.Add(this.EndCall_Button);
@@ -151,6 +163,7 @@
             this.Name = "Form1";
             this.Text = "QuickNotes v2.3";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -164,6 +177,7 @@
         private System.Windows.Forms.RichTextBox log_textbox;
         private System.Windows.Forms.Button Save_Button;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
 
