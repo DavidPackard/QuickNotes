@@ -36,7 +36,7 @@
             this.EndCall_Button = new System.Windows.Forms.Button();
             this.log_textbox = new System.Windows.Forms.RichTextBox();
             this.Save_Button = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.asset_textbox = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -124,14 +124,14 @@
             this.Save_Button.UseVisualStyleBackColor = true;
             this.Save_Button.Click += new System.EventHandler(this.Save_Button_Click);
             // 
-            // richTextBox1
+            // asset_textbox
             // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.Location = new System.Drawing.Point(327, 35);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(105, 26);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
+            this.asset_textbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.asset_textbox.Location = new System.Drawing.Point(327, 35);
+            this.asset_textbox.Name = "asset_textbox";
+            this.asset_textbox.Size = new System.Drawing.Size(105, 26);
+            this.asset_textbox.TabIndex = 1;
+            this.asset_textbox.Text = "";
             // 
             // label1
             // 
@@ -156,7 +156,7 @@
             this.Controls.Add(this.OnHold_PreButton);
             this.Controls.Add(this.StartCall_PreButton);
             this.Controls.Add(this.AddNote_Button);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.asset_textbox);
             this.Controls.Add(this.input_textbox);
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(312, 255);
@@ -176,7 +176,7 @@
         private System.Windows.Forms.Button EndCall_Button;
         private System.Windows.Forms.RichTextBox log_textbox;
         private System.Windows.Forms.Button Save_Button;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox asset_textbox;
         private System.Windows.Forms.Label label1;
     }
 }

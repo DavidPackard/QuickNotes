@@ -29,13 +29,22 @@ namespace QuickNotes_v2
 
                 input_textbox.Clear();
             }
-
+            
             string entry = noteText;
+
+            if (asset_textbox.Text == "")
+            {
+                entry = noteText;
+            }
+            else
+            {
+                entry = $"[{asset_textbox.Text}] {noteText}";
+            }
 
             if (addTimestamp)
             {
                 string timestamp = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-                entry = $"[{timestamp}] {noteText}";
+                entry = $"[{timestamp}] {entry}";
             }
 
             log_textbox.AppendText(entry + Environment.NewLine);
