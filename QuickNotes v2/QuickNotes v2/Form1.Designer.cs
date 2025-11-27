@@ -36,6 +36,7 @@
             this.EndCall_Button = new System.Windows.Forms.Button();
             this.log_textbox = new System.Windows.Forms.RichTextBox();
             this.Save_Button = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // input_textbox
@@ -44,7 +45,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.input_textbox.Location = new System.Drawing.Point(12, 12);
             this.input_textbox.Name = "input_textbox";
-            this.input_textbox.Size = new System.Drawing.Size(420, 48);
+            this.input_textbox.Size = new System.Drawing.Size(309, 48);
             this.input_textbox.TabIndex = 1;
             this.input_textbox.Text = "";
             // 
@@ -113,6 +114,7 @@
             // 
             // Save_Button
             // 
+            this.Save_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Save_Button.Location = new System.Drawing.Point(439, 246);
             this.Save_Button.Name = "Save_Button";
             this.Save_Button.Size = new System.Drawing.Size(44, 23);
@@ -120,6 +122,15 @@
             this.Save_Button.Text = "Save";
             this.Save_Button.UseVisualStyleBackColor = true;
             this.Save_Button.Click += new System.EventHandler(this.Save_Button_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox1.Location = new System.Drawing.Point(327, 35);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(105, 26);
+            this.richTextBox1.TabIndex = 1;
+            this.richTextBox1.Text = "";
             // 
             // Form1
             // 
@@ -133,6 +144,7 @@
             this.Controls.Add(this.OnHold_PreButton);
             this.Controls.Add(this.StartCall_PreButton);
             this.Controls.Add(this.AddNote_Button);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.input_textbox);
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(312, 255);
@@ -151,6 +163,7 @@
         private System.Windows.Forms.Button EndCall_Button;
         private System.Windows.Forms.RichTextBox log_textbox;
         private System.Windows.Forms.Button Save_Button;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 
