@@ -153,6 +153,7 @@
             this.button_clear.TabIndex = 7;
             this.button_clear.Text = "DEL";
             this.button_clear.UseVisualStyleBackColor = true;
+            this.button_clear.Click += new System.EventHandler(this.button_clear_Click);
             // 
             // Form1
             // 
