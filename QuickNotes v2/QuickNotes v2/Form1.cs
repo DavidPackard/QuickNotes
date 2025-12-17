@@ -100,9 +100,9 @@ Issue: {issue}";
                 log_textbox.Text = File.ReadAllText(AutoSavePath);
             }
 
-            // Setup auto-save timer (every 30 seconds)
+            // Setup auto-save timer (every x seconds)
             autoSaveTimer = new Timer();
-            autoSaveTimer.Interval = 30_000; // 30 seconds
+            autoSaveTimer.Interval = 15_000; // 15 seconds
             autoSaveTimer.Tick += AutoSaveTimer_Tick;
             autoSaveTimer.Start();
 
