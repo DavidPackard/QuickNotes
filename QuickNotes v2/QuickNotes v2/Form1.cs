@@ -146,5 +146,10 @@ Issue: {issue}";
                 }
             }
         }
+
+        private void button_clear_Click(object sender, EventArgs e)
+        {
+            log_textbox.Clear();
+        }
     }
 }

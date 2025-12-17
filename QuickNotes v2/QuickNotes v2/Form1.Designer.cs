@@ -38,6 +38,7 @@
             this.Save_Button = new System.Windows.Forms.Button();
             this.asset_textbox = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.button_clear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // input_textbox
@@ -64,7 +65,7 @@
             // 
             this.StartCall_PreButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.StartCall_PreButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.StartCall_PreButton.Location = new System.Drawing.Point(438, 80);
+            this.StartCall_PreButton.Location = new System.Drawing.Point(438, 67);
             this.StartCall_PreButton.Name = "StartCall_PreButton";
             this.StartCall_PreButton.Size = new System.Drawing.Size(85, 27);
             this.StartCall_PreButton.TabIndex = 3;
@@ -74,7 +75,7 @@
             // OnHold_PreButton
             // 
             this.OnHold_PreButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.OnHold_PreButton.Location = new System.Drawing.Point(438, 113);
+            this.OnHold_PreButton.Location = new System.Drawing.Point(438, 96);
             this.OnHold_PreButton.Name = "OnHold_PreButton";
             this.OnHold_PreButton.Size = new System.Drawing.Size(85, 27);
             this.OnHold_PreButton.TabIndex = 3;
@@ -84,7 +85,7 @@
             // OffHold_PreButton
             // 
             this.OffHold_PreButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.OffHold_PreButton.Location = new System.Drawing.Point(438, 146);
+            this.OffHold_PreButton.Location = new System.Drawing.Point(438, 125);
             this.OffHold_PreButton.Name = "OffHold_PreButton";
             this.OffHold_PreButton.Size = new System.Drawing.Size(85, 27);
             this.OffHold_PreButton.TabIndex = 3;
@@ -95,7 +96,7 @@
             // 
             this.EndCall_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EndCall_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.EndCall_Button.Location = new System.Drawing.Point(438, 179);
+            this.EndCall_Button.Location = new System.Drawing.Point(439, 154);
             this.EndCall_Button.Name = "EndCall_Button";
             this.EndCall_Button.Size = new System.Drawing.Size(85, 27);
             this.EndCall_Button.TabIndex = 3;
@@ -116,9 +117,9 @@
             // Save_Button
             // 
             this.Save_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Save_Button.Location = new System.Drawing.Point(439, 246);
+            this.Save_Button.Location = new System.Drawing.Point(471, 219);
             this.Save_Button.Name = "Save_Button";
-            this.Save_Button.Size = new System.Drawing.Size(44, 23);
+            this.Save_Button.Size = new System.Drawing.Size(53, 23);
             this.Save_Button.TabIndex = 5;
             this.Save_Button.Text = "Save";
             this.Save_Button.UseVisualStyleBackColor = true;
@@ -143,11 +144,23 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Asset";
             // 
+            // button_clear
+            // 
+            this.button_clear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_clear.Location = new System.Drawing.Point(471, 248);
+            this.button_clear.Name = "button_clear";
+            this.button_clear.Size = new System.Drawing.Size(53, 23);
+            this.button_clear.TabIndex = 7;
+            this.button_clear.Text = "DEL";
+            this.button_clear.UseVisualStyleBackColor = true;
+            this.button_clear.Click += new System.EventHandler(this.button_clear_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 281);
+            this.Controls.Add(this.button_clear);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Save_Button);
             this.Controls.Add(this.log_textbox);
@@ -178,6 +191,7 @@
         private System.Windows.Forms.Button Save_Button;
         private System.Windows.Forms.RichTextBox asset_textbox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button_clear;
     }
 }
 
