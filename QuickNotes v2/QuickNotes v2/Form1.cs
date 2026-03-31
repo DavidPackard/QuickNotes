@@ -177,5 +177,13 @@ Issue: {issue}";
         {
             log_textbox.Clear();
         }
+
+        private void btn_LoadAutosave_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(AutoSavePath))
+             {
+                 log_textbox.Text = File.ReadAllText(AutoSavePath);
+             }
+        }
     }
 }

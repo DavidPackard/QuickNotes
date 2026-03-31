@@ -40,7 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button_clear = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_LoadAutosave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // input_textbox
@@ -167,21 +167,22 @@
             this.label2.TabIndex = 8;
             this.label2.Text = "Note:";
             // 
-            // button1
+            // btn_LoadAutosave
             // 
-            this.button1.Location = new System.Drawing.Point(432, 244);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 37);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Load Autosave";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_LoadAutosave.Location = new System.Drawing.Point(432, 244);
+            this.btn_LoadAutosave.Name = "btn_LoadAutosave";
+            this.btn_LoadAutosave.Size = new System.Drawing.Size(85, 37);
+            this.btn_LoadAutosave.TabIndex = 9;
+            this.btn_LoadAutosave.Text = "Load Autosave";
+            this.btn_LoadAutosave.UseVisualStyleBackColor = true;
+            this.btn_LoadAutosave.Click += new System.EventHandler(this.btn_LoadAutosave_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(527, 284);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_LoadAutosave);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button_clear);
             this.Controls.Add(this.label1);
@@ -216,7 +217,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_clear;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_LoadAutosave;
     }
 }
 
