@@ -39,6 +39,8 @@
             this.asset_textbox = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button_clear = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // input_textbox
@@ -47,25 +49,25 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.input_textbox.Location = new System.Drawing.Point(12, 12);
             this.input_textbox.Name = "input_textbox";
-            this.input_textbox.Size = new System.Drawing.Size(309, 48);
+            this.input_textbox.Size = new System.Drawing.Size(302, 48);
             this.input_textbox.TabIndex = 1;
             this.input_textbox.Text = "";
             // 
             // AddNote_Button
             // 
             this.AddNote_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddNote_Button.Location = new System.Drawing.Point(438, 13);
+            this.AddNote_Button.Location = new System.Drawing.Point(431, 13);
             this.AddNote_Button.Name = "AddNote_Button";
             this.AddNote_Button.Size = new System.Drawing.Size(85, 47);
             this.AddNote_Button.TabIndex = 2;
-            this.AddNote_Button.Text = "Add Note";
+            this.AddNote_Button.Text = "Add Note\r\n[Enter]";
             this.AddNote_Button.UseVisualStyleBackColor = true;
             // 
             // StartCall_PreButton
             // 
             this.StartCall_PreButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.StartCall_PreButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.StartCall_PreButton.Location = new System.Drawing.Point(438, 67);
+            this.StartCall_PreButton.Location = new System.Drawing.Point(431, 67);
             this.StartCall_PreButton.Name = "StartCall_PreButton";
             this.StartCall_PreButton.Size = new System.Drawing.Size(85, 27);
             this.StartCall_PreButton.TabIndex = 3;
@@ -75,7 +77,7 @@
             // OnHold_PreButton
             // 
             this.OnHold_PreButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.OnHold_PreButton.Location = new System.Drawing.Point(438, 96);
+            this.OnHold_PreButton.Location = new System.Drawing.Point(431, 96);
             this.OnHold_PreButton.Name = "OnHold_PreButton";
             this.OnHold_PreButton.Size = new System.Drawing.Size(85, 27);
             this.OnHold_PreButton.TabIndex = 3;
@@ -85,7 +87,7 @@
             // OffHold_PreButton
             // 
             this.OffHold_PreButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.OffHold_PreButton.Location = new System.Drawing.Point(438, 125);
+            this.OffHold_PreButton.Location = new System.Drawing.Point(431, 125);
             this.OffHold_PreButton.Name = "OffHold_PreButton";
             this.OffHold_PreButton.Size = new System.Drawing.Size(85, 27);
             this.OffHold_PreButton.TabIndex = 3;
@@ -96,7 +98,7 @@
             // 
             this.EndCall_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EndCall_Button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.EndCall_Button.Location = new System.Drawing.Point(439, 154);
+            this.EndCall_Button.Location = new System.Drawing.Point(432, 154);
             this.EndCall_Button.Name = "EndCall_Button";
             this.EndCall_Button.Size = new System.Drawing.Size(85, 27);
             this.EndCall_Button.TabIndex = 3;
@@ -110,14 +112,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.log_textbox.Location = new System.Drawing.Point(13, 67);
             this.log_textbox.Name = "log_textbox";
-            this.log_textbox.Size = new System.Drawing.Size(419, 204);
+            this.log_textbox.Size = new System.Drawing.Size(412, 189);
             this.log_textbox.TabIndex = 4;
             this.log_textbox.Text = "";
             // 
             // Save_Button
             // 
-            this.Save_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Save_Button.Location = new System.Drawing.Point(471, 219);
+            this.Save_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Save_Button.Location = new System.Drawing.Point(101, 258);
             this.Save_Button.Name = "Save_Button";
             this.Save_Button.Size = new System.Drawing.Size(53, 23);
             this.Save_Button.TabIndex = 5;
@@ -128,7 +130,7 @@
             // asset_textbox
             // 
             this.asset_textbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.asset_textbox.Location = new System.Drawing.Point(327, 35);
+            this.asset_textbox.Location = new System.Drawing.Point(320, 35);
             this.asset_textbox.Name = "asset_textbox";
             this.asset_textbox.Size = new System.Drawing.Size(105, 26);
             this.asset_textbox.TabIndex = 1;
@@ -138,7 +140,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(362, 19);
+            this.label1.Location = new System.Drawing.Point(355, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(33, 13);
             this.label1.TabIndex = 6;
@@ -146,20 +148,41 @@
             // 
             // button_clear
             // 
-            this.button_clear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button_clear.Location = new System.Drawing.Point(471, 248);
+            this.button_clear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button_clear.BackColor = System.Drawing.Color.IndianRed;
+            this.button_clear.Location = new System.Drawing.Point(12, 258);
             this.button_clear.Name = "button_clear";
             this.button_clear.Size = new System.Drawing.Size(53, 23);
             this.button_clear.TabIndex = 7;
-            this.button_clear.Text = "DEL";
-            this.button_clear.UseVisualStyleBackColor = true;
+            this.button_clear.Text = "Clear";
+            this.button_clear.UseVisualStyleBackColor = false;
             this.button_clear.Click += new System.EventHandler(this.button_clear_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, -1);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(33, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Note:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(432, 244);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(85, 37);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Load Autosave";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 281);
+            this.ClientSize = new System.Drawing.Size(527, 284);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.button_clear);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Save_Button);
@@ -174,7 +197,7 @@
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(312, 255);
             this.Name = "Form1";
-            this.Text = "QuickNotes v2.5.1";
+            this.Text = "QuickNotes v2.6";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,6 +215,8 @@
         private System.Windows.Forms.RichTextBox asset_textbox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button_clear;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
     }
 }
 

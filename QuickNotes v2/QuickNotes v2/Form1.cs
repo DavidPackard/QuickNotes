@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace QuickNotes_v2
 {
@@ -52,12 +53,15 @@ namespace QuickNotes_v2
         }
 
 
-        private void AddCallStart()
+        private void AddCallStart(string name = null, string phone = null, string issue = null)
         {
             // Prompt for basic customer info
-            string name = Microsoft.VisualBasic.Interaction.InputBox("Enter Customer Name:", "Call Start", "");
-            string phone = Microsoft.VisualBasic.Interaction.InputBox("Enter Phone Number:", "Call Start", "");
-            string issue = Microsoft.VisualBasic.Interaction.InputBox("Issue:", "Call Start", "");
+            if (string.IsNullOrEmpty(name))
+                name = Microsoft.VisualBasic.Interaction.InputBox("Enter Customer Name:", "Call Start", "");
+            if (string.IsNullOrEmpty(phone))
+                phone = Microsoft.VisualBasic.Interaction.InputBox("Enter Phone Number:", "Call Start", "");
+            if (string.IsNullOrEmpty(issue)) 
+                issue = Microsoft.VisualBasic.Interaction.InputBox("Issue:", "Call Start", "");
 
             AddNote("=== [CALL START] ===", addTimestamp: true);
             // Build the template
@@ -89,20 +93,42 @@ Issue: {issue}";
                 // Fail silently
             }
         }
+        
+        private string[] launchArgs;
 
-        public Form1()
+        private void HandleLaunchArgs()
+        {
+            if (launchArgs == null || launchArgs.Length == 0)
+                return;
+
+            foreach (var arg in launchArgs)
+            {
+                if (arg == "startcall")
+                {
+                    string name = launchArgs.Length > 1 ? launchArgs[1] : "";
+                    string phone = launchArgs.Length > 2 ? launchArgs[2] : "";
+                    AddCallStart(name, phone, " ");
+                }
+            }
+        }
+
+        public Form1(string[] args)
         {
             InitializeComponent();
 
+            launchArgs = args;
+
+            HandleLaunchArgs();
+
             // Load draft if it exists
-            if (File.Exists(AutoSavePath))
-            {
-                log_textbox.Text = File.ReadAllText(AutoSavePath);
-            }
+            // if (File.Exists(AutoSavePath))
+            // {
+            //     log_textbox.Text = File.ReadAllText(AutoSavePath);
+            // }
 
             // Setup auto-save timer (every x seconds)
             autoSaveTimer = new Timer();
-            autoSaveTimer.Interval = 15_000; // 15 seconds
+            autoSaveTimer.Interval = 30_000; // 15 seconds
             autoSaveTimer.Tick += AutoSaveTimer_Tick;
             autoSaveTimer.Start();
 
