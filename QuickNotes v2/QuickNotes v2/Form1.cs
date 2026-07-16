@@ -105,10 +105,13 @@ Issue: {issue}";
             {
                 if (arg == "startcall")
                 {
-                    string name = launchArgs.Length > 1 ? launchArgs[1] : "";
-                    string phone = launchArgs.Length > 2 ? launchArgs[2] : "";
+                    string name = launchArgs.Length > 1 ? launchArgs[2] : "";
+                    string phone = launchArgs.Length > 2 ? launchArgs[3] : "";
                     AddCallStart(name, phone, " ");
                 }
+                else
+                    AddNote("ArgsLength" + launchArgs.Length, true);
+                    AddNote(arg, true);
             }
         }
 
