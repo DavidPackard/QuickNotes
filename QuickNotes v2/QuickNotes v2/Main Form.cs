@@ -194,6 +194,7 @@ Issue: {issue}";
         {
 
             StartCall startCall = new StartCall();
+            startCall.StartPosition = FormStartPosition.CenterParent;
             if (startCall.ShowDialog() == DialogResult.OK)
             {
                 AddCallStart(startCall.CallerName,startCall.CallerNumber,startCall.CallerReason);
