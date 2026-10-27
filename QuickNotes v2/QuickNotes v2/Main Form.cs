@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -56,12 +57,12 @@ namespace QuickNotes_v2
         private void AddCallStart(string name = null, string phone = null, string issue = null)
         {
             // Prompt for basic customer info
-            if (string.IsNullOrEmpty(name))
-                name = Microsoft.VisualBasic.Interaction.InputBox("Enter Customer Name:", "Call Start", "");
-            if (string.IsNullOrEmpty(phone))
-                phone = Microsoft.VisualBasic.Interaction.InputBox("Enter Phone Number:", "Call Start", "");
-            if (string.IsNullOrEmpty(issue)) 
-                issue = Microsoft.VisualBasic.Interaction.InputBox("Issue:", "Call Start", "");
+            //if (string.IsNullOrEmpty(name))
+            //    name = Microsoft.VisualBasic.Interaction.InputBox("Enter Customer Name:", "Call Start", "");
+            //if (string.IsNullOrEmpty(phone))
+            //    phone = Microsoft.VisualBasic.Interaction.InputBox("Enter Phone Number:", "Call Start", "");
+            //if (string.IsNullOrEmpty(issue)) 
+            //    issue = Microsoft.VisualBasic.Interaction.InputBox("Issue:", "Call Start", "");
 
             AddNote("=== [CALL START] ===", addTimestamp: true);
             // Build the template
@@ -137,7 +138,7 @@ Issue: {issue}";
 
 
             AddNote_Button.Click += (s, e) => AddNote();
-            StartCall_PreButton.Click += (s, e) => AddCallStart();
+            //StartCall_PreButton.Click += (s, e) => AddCallStart();
             OnHold_PreButton.Click += (s, e) => AddNote("[CALL ON HOLD]");
             OffHold_PreButton.Click += (s, e) => AddNote("[CALL OFF HOLD]");
             EndCall_Button.Click += (s, e) => AddNote("=== [ CALL END ] ===");
@@ -187,6 +188,16 @@ Issue: {issue}";
              {
                  log_textbox.Text = File.ReadAllText(AutoSavePath);
              }
+        }
+
+        private void StartCall_PreButton_Click(object sender, EventArgs e)
+        {
+
+            StartCall startCall = new StartCall();
+            if (startCall.ShowDialog() == DialogResult.OK)
+            {
+                AddCallStart(startCall.CallerName,startCall.CallerNumber,startCall.CallerReason);
+            }
         }
     }
 }
